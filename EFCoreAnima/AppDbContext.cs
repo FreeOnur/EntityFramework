@@ -16,14 +16,5 @@ namespace EFCoreAnima
         {
             optionsBuilder.UseSqlite("Data Source=animals.db");
         }
-
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<Animal>(entity =>
-            {
-                entity.Property(a => a.Name).HasColumnType("TEXT");
-                entity.Property(a => a.Colour).HasColumnType("TEXT");
-            });
-        }
     }
 }

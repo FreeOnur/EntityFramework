@@ -14,7 +14,16 @@ namespace EFCoreAnima
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=EFCoreAnimaDB;Trusted_Connection=True;");
+            optionsBuilder.UseSqlite("Data Source=animals.db");
+        }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Animal>(entity =>
+            {
+                entity.Property(a => a.Name).HasColumnType("TEXT");
+                entity.Property(a => a.Colour).HasColumnType("TEXT");
+            });
         }
     }
 }

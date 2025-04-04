@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace EFCoreAnima
+namespace EFCoreAnima.Classes
 {
     public class Animal
     {
@@ -18,6 +18,8 @@ namespace EFCoreAnima
 
         [Column(TypeName = "TEXT")]
         public string Colour { get; set; }
+        public int TierheimId { get; set; }
+        public Tierheim Tierheim { get; set; }
     }
 
 }

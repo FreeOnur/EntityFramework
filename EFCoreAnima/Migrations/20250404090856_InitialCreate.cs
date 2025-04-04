@@ -18,11 +18,19 @@ namespace EFCoreAnima.Migrations
                         .Annotation("Sqlite:Autoincrement", true),
                     Name = table.Column<string>(type: "TEXT", nullable: false),
                     Age = table.Column<int>(type: "INTEGER", nullable: false),
-                    Colour = table.Column<string>(type: "TEXT", nullable: false)
+                    Colour = table.Column<string>(type: "TEXT", nullable: false),
+                    TierheimId = table.Column<int>(type: "INTEGER", nullable: false)
+
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Animals", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Animals_Tierheime_TierheimId",
+                        column: x => x.TierheimId,
+                        principalTable: "Tierheime",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
         }
 

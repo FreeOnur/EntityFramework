@@ -48,9 +48,7 @@ namespace EFCoreAnima
                     Console.WriteLine($"Animal: {anim.Name}, Age: {anim.Age}");
                 }
 
-                var TierheimTest = context.Tierheime
-                    .Include(t => t.AnimalsList)
-                    .FirstOrDefault(t => t.TierheimName == "Wiener Tierheim");
+                var TierheimTest = context.Tierheime.Include(t => t.AnimalsList).FirstOrDefault(t => t.TierheimName == "Wiener Tierheim");
 
                 if (TierheimTest != null)
                 {

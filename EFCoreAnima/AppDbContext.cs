@@ -17,13 +17,5 @@ namespace EFCoreAnima
         {
             optionsBuilder.UseSqlite("Data Source=animals.db");
         }
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            // Konfiguration der Beziehung (sofern vorhanden)
-            modelBuilder.Entity<Animal>()
-                .HasOne(a => a.Tierheim)
-                .WithMany(t => t.AnimalsList)
-                .HasForeignKey(a => a.TierheimId);
-        }
     }
 }

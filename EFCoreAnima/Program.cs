@@ -8,10 +8,11 @@ namespace EFCoreAnima
 {
     class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
             using (var context = new AppDbContext())
             {
+                context.Database.Migrate();
                 var tierheim = new Tierheim
                 {
                     TierheimName = "Wiener Tierheim",

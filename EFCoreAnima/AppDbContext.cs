@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using EFCoreAnima.Classes;
 using Microsoft.EntityFrameworkCore;
 
 namespace EFCoreAnima
@@ -11,6 +11,7 @@ namespace EFCoreAnima
     public class AppDbContext : DbContext
     {
         public DbSet<Animal> Animals { get; set; }
+        public DbSet<Tierheim> Tierheime { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

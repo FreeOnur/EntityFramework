@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using EFCoreAnima.Classes;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 
 namespace EFCoreAnima
 {
@@ -15,7 +16,8 @@ namespace EFCoreAnima
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlite("Data Source=animals.db");
+            optionsBuilder.UseSqlite("Data Source=animals.db").LogTo(Console.WriteLine);
+
         }
     }
 }

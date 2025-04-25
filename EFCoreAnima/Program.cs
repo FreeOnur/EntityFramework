@@ -43,6 +43,7 @@ namespace EFCoreAnima
                 tierheim.AnimalsList.Add(anotherAnimal);
                 context.SaveChanges();
 
+                var namen = context.Tierheime.Select(t => t.TierheimName).ToList();
                 var query = context.Animals.Where(s => s.Name == "Jacky");
                 foreach (var anim in query)
                 {

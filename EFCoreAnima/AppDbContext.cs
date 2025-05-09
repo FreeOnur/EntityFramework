@@ -16,7 +16,7 @@ namespace EFCoreAnima
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlite("Data Source=animals.db").LogTo(Console.WriteLine);
+            optionsBuilder.UseSqlite("Data Source=animals.db").LogTo(Console.WriteLine, LogLevel.Information);
 
         }
     }
